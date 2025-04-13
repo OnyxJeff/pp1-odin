@@ -40,5 +40,7 @@ Run the backup script to save Pi-hole configs and VPN keys:
 bash backups/backup.sh
 ```
 
+---
+
 📬 Maintained By
 Jeff M. • [@OnyxJeff](https://www.github.com/onyxjeff)

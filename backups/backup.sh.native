@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Directory to store backups
+BACKUP_DIR="/backups"
+
+# Pi-hole configuration backup
+echo "Backing up Pi-hole configuration..."
+sudo cp /etc/pihole/pihole-FTL.conf $BACKUP_DIR/pihole-FTL.conf
+sudo cp /etc/dnsmasq.d/* $BACKUP_DIR/dnsmasq.d/
+
+# PiVPN configuration and keys backup
+echo "Backing up PiVPN configuration and keys..."
+sudo cp -r /etc/openvpn $BACKUP_DIR/openvpn
+
+# Optional: Archive the backup directory
+echo "Creating archive..."
+sudo tar czf $BACKUP_DIR/backup_$(date +%Y%m%d).tar.gz $BACKUP_DIR/*
+
+echo "Backup completed."

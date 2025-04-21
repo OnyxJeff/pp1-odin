@@ -5,6 +5,18 @@
 
 **Odin** is the DNS deity and VPN sentinel of my homelab, powered by a Raspberry Pi 4.
 
+## 📁 Repo Structure
+
+```text
+odin/
+├── .github/workflows/    # CI for YAML validation
+├── backups/              # Exported or example snapshot files
+├── docker/               # YAML-based -darr stack applications
+└── README.md             # You're reading it!
+```
+
+---
+
 ### 🧰 Services
 - **Pi-hole**: Blocks ads, trackers, and telemetry across the network.
 - **PiVPN**: Provides secure remote access to internal services.

@@ -1,24 +1,25 @@
----
-version: "1"
+version: '3'
 services:
-  wireguard:
-    image: lscr.io/linuxserver/wireguard:latest
-    container_name: wireguard
-    cap_add:
-      - NET_ADMIN
-      - SYS_MODULE
-    environment:
-      - PUID=1000
-      - PGID=1000
-      - TZ=America/New_York
-      - SERVERURL=your_external_ip_or_domain
-      - PEERS=client1,client2
-      - PEERDNS=1.1.1.1
-    volumes:
-      - ./config:/config
-      - /lib/modules:/lib/modules
+  openvpn:
+    image: archef2000/pivpn:latest
+    container_name: pivpn
+    hostname: pivpn
     ports:
-      - 51820:51820/udp
-    sysctls:
-      - net.ipv4.conf.all.src_valid_mark=1
-    restart: unless-stopped
+      - 1194:1194/udp
+    volumes:
+      - ./${USER}/docker/openvpn/ovpns:/home/pivpn/ovpns
+      - ./${USER}/docker/openvpn/openvpn:/etc/openvpn
+    environment:
+      - HOST=example.com
+      - PROTO=udp # or tcp
+      - VPN=openvpn
+      - PORT=1194
+# optional
+      - CLIENT_NAME=pivpn
+      - NET=10.8.0.0
+      - TWO_POINT_FOUR=1 # or 0 If TWO_POINT_FOUR=0 then ENCRYPT needs to be 2048, 3072, or 4096
+      - DNS1=1.1.1.1 # Client DNS
+      - DNS2=9.9.9.9 # Client DNS
+      - ENCRYPT=256 # 256, 384, or 521 if TWO_POINT_FOUR=0 then ENCRYPT needs to be 2048, 3072, or 4096
+    privileged: true # Is needed to run Openvpn
+    restart: always

@@ -17,24 +17,22 @@ odin/
 
 ---
 
-### 🧰 Services
+## 🧰 Services
 - **Pi-hole**: Blocks ads, trackers, and telemetry across the network.
 - **PiVPN**: Provides secure remote access to internal services.
 
 ---
 
-## System-Native Install
+### System-Native Install
 
-### Pi-hole
+#### Pi-hole
 
 ```bash
 curl -sSL https://install.pi-hole.net | bash
 ```
 Note: This will install the latest version of Pi-Hole.
 
----
-
-### PiVPN
+#### PiVPN
 
 ```bash
 curl -L https://install.pivpn.io | bash
@@ -43,9 +41,9 @@ Note: This will install the latest version of PiVPN.
 
 ---
 
-## 📦 Docker Compose
+### 📦 Docker Compose
 
-### Pi-hole
+#### Pi-hole
 
 ```bash
 cd docker/pihole
@@ -54,9 +52,7 @@ docker-compose up -d
 
 Note: If you installed PiHole outside Docker, skip this section and treat it as system-native.
 
----
-
-### PiVPN
+#### PiVPN
 
 ```bash
 cd docker/pivpn
@@ -64,6 +60,8 @@ docker-compose up -d
 ```
 
 Note: If you installed PiVPN outside Docker, skip this section and treat it as system-native.
+
+---
 
 ## 💾 Backup
 Choose the backup script that coincides with your installation type (Docker or System-Native), remove the ".docker" or ".native" and run the backup script to save Pi-hole configs and VPN keys:

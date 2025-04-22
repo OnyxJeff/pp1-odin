@@ -21,8 +21,6 @@ odin/
 - **Pi-hole**: Blocks ads, trackers, and telemetry across the network.
 - **PiVPN**: Provides secure remote access to internal services.
 
----
-
 ### System-Native Install
 
 #### Pi-hole

@@ -22,7 +22,7 @@ odin/
 
 ## 🧰 Services
 - **Pi-hole**: Blocks ads, trackers, and telemetry across the network.
-- **PiVPN**: Provides secure remote access to internal services.
+- **NGinxRP**: Provides DNS entries for internal services, providing them with URLs to navigate rather than IP addresses.
 
 ### System-Native Install
 

@@ -1,10 +1,9 @@
-pipeline:
-  test-odin:
+name: Test on Odin
+labels:
+  device: odin
+steps:
+  - name: uname
     image: alpine
     commands:
       - echo "Running test on Odin"
       - uname -a
-    when:
-      matrix:
-        WOODPECKER_AGENT_LABELS:
-          - device=odin

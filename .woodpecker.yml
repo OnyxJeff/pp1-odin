@@ -1,14 +1,9 @@
-labels:
-  device: odin
-
 steps:
-  - name: uname
+  ping:
     image: alpine
     commands:
-      - echo "Running test on Odin"
-      - uname -a
+      - echo "Running on Odin!"
     when:
-      labels:
-        linux: arm64
       event:
         - push
+      platform: linux/arm64

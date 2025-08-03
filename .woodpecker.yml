@@ -1,9 +1,12 @@
-name: Test on Odin
 labels:
   device: odin
+
 steps:
   - name: uname
     image: alpine
     commands:
       - echo "Running test on Odin"
       - uname -a
+    when:
+      event:
+        - push

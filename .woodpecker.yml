@@ -1,0 +1,14 @@
+pipeline:
+  deploy-odin:
+    image: alpine
+    environment:
+      HOST: 192.168.1.17
+      USER: pi
+      DEST: /home/potentpi1
+    commands:
+      - apk add --no-cache openssh
+      - mkdir -p ~/.ssh
+      - echo "$SSH_PRIVATE_KEY" > ~/.ssh/id_rsa
+      - chmod 600 ~/.ssh/id_rsa
+      - scp ./deploy/odin/docker-compose.yml $USER@$HOST:$DEST/
+      - ssh $USER@$HOST 'docker compose -f ~/docker-compose.yml up -d'

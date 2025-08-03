@@ -8,5 +8,7 @@ steps:
       - echo "Running test on Odin"
       - uname -a
     when:
+      labels:
+        linux: arm64
       event:
         - push
